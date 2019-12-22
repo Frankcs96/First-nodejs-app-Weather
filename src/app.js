@@ -6,6 +6,8 @@ const forecast = require('./utils/forecast');
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 app.use(express.static(path.join(__dirname, '../public'))); // Setup static directory
 app.set('views', path.join(__dirname, '../templates/views')); //path for hbs
 app.set('view engine', 'hbs'); // using hbs
@@ -105,10 +107,8 @@ app.get('*', (req, res) => {
 });
 
 
-// app.com
-// app.com/help
-// app.com/about
 
-app.listen(3000, () => {
+
+app.listen(port, () => {
     console.log('Server running!');
 });
